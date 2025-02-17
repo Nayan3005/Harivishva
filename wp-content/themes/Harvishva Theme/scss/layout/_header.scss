@@ -1,0 +1,263 @@
+@charset "UTF-8";
+
+/* ---------------------- */
+/* -- MENU AND HEADER -- */
+/* ---------------------- */
+#site-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: transparent;
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+#site-header.scrolled {
+    background: var(--primary);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+#logo {
+    display: grid;
+    grid-template-columns: 100px auto;
+    gap: 10px;
+    align-items: center;
+}
+
+#logo img {
+    width: 100%;
+    display: block;
+}
+
+#logo p {
+    font-size: .825rem;
+    line-height: 1.1;
+    border-left: 1px solid #ccc;
+    padding: 10px 0 10px 10px;
+    margin: 0 0 0 5px;
+    align-self: center;
+    color: var(--text-color);
+}
+
+/* ---------------------- */
+/* -- CONTACT & BUTTON -- */
+/* ---------------------- */
+.header-contact {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contact-number{
+    display: none;
+}
+.enquire-button {
+    display: none;
+}
+
+/* ---------------------- */
+/* -- MENU STYLING -- */
+/* ---------------------- */
+#menu-toggle {
+    width: 50px; /* Adjust size */
+    height: 50px; /* Ensure it's a circle */
+    background: var(--primary); /* Change to your desired background color */
+    border-radius: 50%; /* Make it circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+#menu-toggle > div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#menu-toggle .closed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px; /* Adjust spacing between bars */
+}
+
+#menu-toggle .closed .bar {
+    width: 27px; /* Adjust bar length */
+    height: 1px;
+    background: var(--text-color);
+    display: block;
+    border-radius: 1px;
+}
+
+#menu-toggle .open .bar {
+    width: 27px;
+    height: 1px;
+    transform: rotate(45deg);
+    background: var(--text-color);
+    position: absolute;
+    left:10px;
+}
+
+#menu-toggle .open .bar:nth-last-of-type(2) {
+    transform: rotate(-45deg)
+}
+
+#menu-toggle.collapsed .open {
+    opacity: 0;
+    visibility: hidden;
+    top: -5px;
+}
+
+#menu-toggle.collapsed .closed {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+}
+
+#menu-toggle .open {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+}
+
+#menu-toggle .closed {
+    opacity: 0;
+    visibility: hidden;
+    top: 5px;
+}
+
+#menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#menu ul a {
+    font-size: 1rem;
+    padding: 10px 15px;
+    display: block;
+    color: white;
+    font-weight: 400;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+/* Active Menu Item */
+#menu ul .active a {
+    font-weight: 700;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+#menu ul a:hover {
+    color: #D7A96E;
+}
+
+/* ---------------------- */
+/* -- RESPONSIVE DESIGN -- */
+/* ---------------------- */
+
+/* TABLET */
+@media (min-width: 768px) {
+    .enquire-button {
+        display: inline-block;
+        background-color: #E3AB79;
+        color: #222;
+        padding: 10px 20px;
+        border-radius: 20px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+    .enquire-button:hover {
+        background-color: #d08d5a;
+    }
+    .contact-number {
+        font-size: 16px;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    .contact-number img {
+        width: 20px;
+        height: 20px;
+    }
+    #menu ul {
+        flex-direction: row;
+    }
+    
+}
+
+/* DESKTOP */
+@media (min-width: 992px) {
+    #menu-toggle {display: none;}
+
+    #site-header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #logo {
+        grid-template-columns: 150px auto;
+    }
+
+    #logo p {
+        font-size: 1rem;
+    }
+
+    #menu {
+        display: block;
+    }
+
+    #menu ul {
+        display: flex;
+    }
+
+    #menu ul a {
+        border: none;
+        font-size: 1rem;
+        padding: 15px 20px;
+        position: relative;
+    }
+
+    #menu ul .active a:after {
+        position: absolute;
+        bottom: 0;
+        left: calc(50% - 2px);
+        content: "";
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid var(--primary);
+    }
+}
+
+/* WIDE DESKTOP */
+@media (min-width: 1200px) {}

@@ -1,0 +1,158 @@
+.footer {
+    background: var(--primary-dark);
+    color: var(--text-light);
+    padding: 40px 20px;
+    text-align: left;
+    font-family: var(--body);
+}
+
+.footer .container {
+    margin: 0 auto;
+}
+
+.footer-widgets {
+    flex-direction: column;
+    text-align: center;
+}
+
+.footer-bottom {
+    flex-direction: column;
+    text-align: center;
+}
+
+.footer-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 20px;
+    justify-content: space-between;
+}
+
+.footer-logo {
+    max-width: 180px;
+    margin-bottom: 15px;
+}
+
+/* Remove bullet points from the footer menu */
+.footer-widget ul {
+    list-style: none; /* Removes default bullets */
+    padding: 0; /* Removes default padding */
+    margin: 0; /* Removes default margin */
+}
+
+.footer-widget ul li {
+    list-style-type: none; /* Ensures no bullets appear */
+    margin-bottom: 5px; /* Optional: adds spacing between items */
+}
+
+.project-dropdown {
+    background: transparent; /* Transparent background */
+    color: var(--text-light); /* Text color */
+    border: none; /* Remove border */
+    font-size: 1rem;
+    cursor: pointer;
+    width: auto;
+    text-align: left;
+    appearance: none; /* Remove default styling */
+    padding: 0px 50px 10px 0px;
+    border-bottom: 1px solid;
+}
+
+/* Prevent the dropdown from showing the white background */
+.project-dropdown option {
+    background: var(--primary-dark); /* Match footer background */
+    color: var(--text-light);
+}
+
+/* Remove default focus blue highlight */
+.project-dropdown:focus {
+    outline: none;
+    background: transparent;
+}
+
+.project-dropdown-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Custom dropdown arrow */
+.project-dropdown-wrapper::after {
+    content: "▼"; /* Custom arrow */
+    font-size: 0.8rem;
+    color: var(--text-light);
+    position: absolute;
+    right: 10px;
+    pointer-events: none;
+    padding-bottom: 10px;
+}
+
+/* Hide default dropdown arrow in some browsers */
+.project-dropdown::-ms-expand {
+    display: none;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background: var(--light-text);
+    margin: 30px 0;
+}
+
+.footer-widget h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: var(--text-light);
+}
+
+.footer-widget p,
+.footer-widget a {
+    color: var(--light-text);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.footer-widget a:hover {
+    color: var(--primary);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+
+    .footer-widgets {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+    .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid var(--light-text);
+        padding-top: 20px;
+        margin-top: 30px;
+        font-size: 0.875rem;
+        color: var(--light-text);
+    }
+
+    .footer-top {
+        flex-direction: row;
+    }
+}
